@@ -3,12 +3,12 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <header className="flex flex-col items-center justify-center px-5 md:px-8 py-10">
-      <h1 className="text-5xl text-center mb-6 md:mb-8 font-bold tracking-wider leading-tight w-[80%]">
+      <h1 className="text-4xl md:text-5xl text-center mb-6 md:mb-8 font-bold md:tracking-wider -tracking-wider leading-tight w-[80%]">
         Turn your landing page into a conversion machine with our AI-powered
         roast! 💯
       </h1>
-      <div className="flex justify-between">
-        <div className="flex flex-col w-[50%] gap-5">
+      <div className="flex justify-between flex-col-reverse md:flex-row">
+        <div className="flex flex-col md:w-[50%] gap-5">
           <div
             className="border w-fit border-gray-600 rounded-full px-3 py-1 bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 
             background-animate text-white">

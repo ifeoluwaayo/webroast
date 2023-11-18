@@ -41,21 +41,15 @@ const handleGetRequest = async () => {
 const handlePostRequest = async (options: any) => {
   // Get the url and fullPage from the options
   const { url, fullPage } = options;
-
   // Launch a new browser using puppeteer
   const browser = await puppeteer.launch();
-
   // Create a new page in the browser
   const page = await browser.newPage();
-
   const urlObject = new URL(url);
-
   // Define a path where the screenshot will be saved
   const path = `public/screenshots/${urlObject.hostname}.png`;
-
   // Navigate to the url
   await page.goto(url);
-
   // Take a screenshot of the page
   await page.screenshot({
     path,
