@@ -1,0 +1,23 @@
+@import "node_modules/locomotive-scroll/dist/locomotive-scroll";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background-animate {
+  background-size: 400%;
+
+  -webkit-animation: bgAnimate 3s ease infinite;
+  -moz-animation: bgAnimate 3s ease infinite;
+  animation: bgAnimate 3s ease infinite;
+}
+
+@keyframes bgAnimate {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
