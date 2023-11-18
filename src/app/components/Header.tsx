@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <nav
       data-scroll-section
-      className="flex items-center justify-between px-5 md:px-8 py-3 md:py-5">
+      className="flex items-center justify-between px-5 md:px-8 py-4 md:py-6">
       <h2 data-scroll className="text-2xl md:text-4xl font-inconsolata">
         Web Roast<span className="text-xl md:text-3xl">🔥</span>
       </h2>
