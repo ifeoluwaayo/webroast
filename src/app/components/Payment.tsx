@@ -4,7 +4,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 const Payment = () => {
   return (
-    <section className="px-5 md:px-8 py-12 md:py-20 flex flex-col items-center justify-center">
+    <section className="px-5 mt-20 md:mt-0 md:px-8 py-12 md:py-20 flex flex-col items-center justify-center">
       <h1 className="text-4xl text-center capitalize font-bold tracking-wider leading-tight">
         Spend less, convert More?
       </h1>
@@ -59,7 +59,7 @@ const Payment = () => {
         </div>
 
         {/* Second Price */}
-        <div className="border-2 border-black gap-5 flex flex-col custom-shadow px-4 py-6 rounded-lg">
+        <div className="border-2 bg-gray-200 border-black gap-5 flex flex-col custom-shadow px-4 py-6 rounded-lg">
           <p className="font-inconsolata text-sm ">Single Roast</p>
           <div className="flex items-center gap-3">
             <p className="text-4xl font-bold">
@@ -79,14 +79,14 @@ const Payment = () => {
               <span>Get a video roast in less than 12 hours</span>
             </li>
             <li className="flex items-start gap-3">
-              <FaCircleCheck className="min-w-9 mt-1 text-lg" />
+              <FaCircleCheck className="min-w-10 w-10 mt-1 text-lg" />
               <span>
                 Comprehensive analysis of your landing page&apos;s performance
                 and usability
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <FaCircleCheck className="min-w-9 w-9 mt-1 text-lg" />
+              <FaCircleCheck className="min-w-10 w-10 mt-1 text-lg" />
               <span>
                 Get feedback from our AI and more than 10 people that have
                 reviewed and roasted your page
