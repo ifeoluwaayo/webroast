@@ -14,7 +14,8 @@ const Header = () => {
   return (
     <nav
       data-scroll-section
-      className="flex items-center justify-between px-5 md:px-8 py-4 md:py-6">
+      star-color="#000"
+      className="section flex items-center justify-between px-5 md:px-8 py-4 md:py-6">
       <h2 data-scroll className="text-2xl md:text-4xl font-inconsolata">
         Web Roast<span className="text-xl md:text-3xl">🔥</span>
       </h2>
@@ -27,16 +28,22 @@ const Header = () => {
           What is a Roast?
         </Link>
         <Link
-          href="#"
-          onClick={(e: any) => smoothScroll()}
+          href="#why"
+          onClick={(e: any) => smoothScroll("#why")}
           className="underline underline-offset-[5px] hover:no-underline hover:bg-[url('/squiggle.svg')]">
           Why?
         </Link>
         <Link
-          href="#"
-          onClick={(e: any) => smoothScroll()}
+          href="#payment"
+          onClick={(e: any) => smoothScroll("#payment")}
           className="underline underline-offset-[5px] hover:no-underline hover:bg-[url('/squiggle.svg')]">
           Payment?
+        </Link>
+        <Link
+          href="#faq"
+          onClick={(e: any) => smoothScroll("#faq")}
+          className="underline underline-offset-[5px] hover:no-underline hover:bg-[url('/squiggle.svg')]">
+          FAQ&apos;s?
         </Link>
       </div>
 

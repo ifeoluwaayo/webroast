@@ -1,4 +1,4 @@
-import { Header, Hero, Unlock, What } from "./components";
+import { Header, Hero, Unlock, What, Why } from "./components";
 import { SmoothScrollProvider } from "./context/scrollContext";
 
 export default function Home() {
@@ -9,7 +9,8 @@ export default function Home() {
         <Hero />
         <Unlock />
         <What />
-        <div className="h-screen w-full section" data-color="#fff"></div>
+        <div className="h-screen w-full"></div>
+        <Why />
       </SmoothScrollProvider>
     </main>
   );

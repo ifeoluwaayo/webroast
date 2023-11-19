@@ -6,3 +6,4 @@ export { default as Why } from "./Why";
 export { default as Payment } from "./Payment";
 export { default as FAQ } from "./FAQ";
 export { default as Footer } from "./Footer";
+export { default as StarBg } from "./StarBg";

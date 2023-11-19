@@ -7,6 +7,7 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
+import { StarBg } from "../components";
 
 export const SmoothScrollContext = createContext({
   scroll: null,
@@ -55,7 +56,7 @@ export const SmoothScrollProvider = ({
 
         gsap.to(document.documentElement, {
           backgroundColor: colorAttr,
-          color: "#fff",
+          color: colorAttr === "#000" ? "#fff" : "#000",
           immediateRender: false,
           scrollTrigger: {
             trigger: section,
@@ -71,6 +72,7 @@ export const SmoothScrollProvider = ({
 
   return (
     <SmoothScrollContext.Provider value={{ scroll }}>
+      <StarBg />
       {children}
     </SmoothScrollContext.Provider>
   );
