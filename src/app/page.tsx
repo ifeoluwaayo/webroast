@@ -9,7 +9,7 @@ export default function Home() {
         <Hero />
         <Unlock />
         <What />
-        <div className="h-screen w-full"></div>
+        <div className="h-[120vh] md:h-screen w-full"></div>
         <Why />
       </SmoothScrollProvider>
     </main>

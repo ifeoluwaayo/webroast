@@ -32,7 +32,7 @@ const What = () => {
 
       ScrollTrigger.create({
         trigger: wrapper.current,
-        start: isMobile ? "top-=400px" : "top top",
+        start: isMobile ? "top+=400px" : "top top",
         end: () => `+=${getScrollDistance() * -1.2}`,
         pin: true,
         animation: tween,
