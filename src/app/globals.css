@@ -32,4 +32,11 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .custom-shadow {
+    box-shadow: rgba(0, 0, 0, 0.776) 0px 0.796192px 0px -1px,
+      rgba(0, 0, 0, 0.73) 0px 2.41451px 0px -2px,
+      rgba(0, 0, 0, 0.608) 0px 6.38265px 0px -3px,
+      rgba(0, 0, 0, 0.2) 0px 20px 0px -4px;
+  }
 }
