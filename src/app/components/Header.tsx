@@ -21,8 +21,8 @@ const Header = () => {
 
       <div className="gap-5 hidden md:flex">
         <Link
-          href="#"
-          onClick={(e: any) => smoothScroll()}
+          href="#what"
+          onClick={(e: any) => smoothScroll("#what")}
           className="underline underline-offset-[5px] hover:no-underline hover:bg-[url('/squiggle.svg')]">
           What is a Roast?
         </Link>
