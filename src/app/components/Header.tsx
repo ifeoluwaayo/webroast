@@ -14,7 +14,6 @@ const Header = () => {
   return (
     <nav
       data-scroll-section
-      star-color="#000"
       className="section flex items-center justify-between px-5 md:px-8 py-4 md:py-6">
       <h2 data-scroll className="text-2xl md:text-4xl font-inconsolata">
         Web Roast<span className="text-xl md:text-3xl">🔥</span>
@@ -48,14 +47,16 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <button className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 px-2 pt-[2px] pb-1 md:pt-1 md:pb-2 before:transition-transform before:ease-in-out before:duration-500 text-sm md:text-base hover:text-white">
+        <Link
+          href="/roast"
+          className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 px-2 pt-[2px] pb-1 md:pt-1 md:pb-2 before:transition-transform before:ease-in-out before:duration-500 text-sm md:text-base hover:text-white">
           <span className="font-inconsolata relative">
             Get Roasted{" "}
             <span className="group-hover:text-gray-500 font-nunito">$12</span>
           </span>
-        </button>
+        </Link>
 
-        <CiMenuFries className="block md:hidden" />
+        {/* <CiMenuFries className="block md:hidden" /> */}
       </div>
     </nav>
   );

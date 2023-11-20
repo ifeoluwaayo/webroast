@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const Unlock = () => {
   return (
@@ -58,9 +59,11 @@ const Unlock = () => {
         <p className="animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#202935,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
           Having issues converting your visitors?
         </p>
-        <button className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 px-2 pt-[2px] pb-1 md:pt-1 md:pb-2 before:transition-transform before:ease-in-out before:duration-500 text-sm md:text-base hover:text-white">
+        <Link
+          href="/roast"
+          className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 px-2 pt-[2px] pb-1 md:pt-1 md:pb-2 before:transition-transform before:ease-in-out before:duration-500 text-sm md:text-base hover:text-white">
           <span className="font-inconsolata relative">Get Roasted</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

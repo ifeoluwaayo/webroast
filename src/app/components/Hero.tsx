@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -42,20 +43,22 @@ const Hero = () => {
           </div>
 
           <div className="w-fit relative md:mt-0">
-            <button className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom hover:before:scale-y-[0.35] before:scale-y-100 px-4 pt-2 pb-3 before:transition-transform before:ease-in-out before:duration-500 hover:text-black text-white">
+            <Link
+              href="/roast"
+              className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom hover:before:scale-y-[0.35] before:scale-y-100 px-4 pt-2 pb-3 before:transition-transform before:ease-in-out before:duration-500 hover:text-black text-white">
               <span className="font-inconsolata relative text-lg">
                 Get Roasted{" "}
                 <span className="group-hover:text-black text-gray-500 font-nunito">
                   $12
                 </span>
               </span>
-            </button>
+            </Link>
             <Image
               src="/after.svg"
               alt="after button"
               width={30}
               height={30}
-              className="absolute -right-[20px] -bottom-[20px]"
+              className="absolute -right-[20px] -bottom-[28px]"
             />
           </div>
         </div>
