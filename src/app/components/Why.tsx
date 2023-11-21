@@ -54,7 +54,7 @@ const Why = () => {
         might want to consider getting a roast:
       </h3>
       <ul className="flex flex-col items-center justify-center gap-5 pb-16 md:pb-10 md:gap-8 first:inner cards">
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
+        <li className="md:max-w-[60%] px-3 py-4 w-[85%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
           <span className="font-semibold font-inconsolata text-2xl">
             🕵️‍♀️ Identify conversion killers:
           </span>
@@ -65,7 +65,7 @@ const Why = () => {
             calls to action.
           </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
+        <li className="md:max-w-[60%] px-3 py-4 w-[85%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
           <span className="font-semibold font-inconsolata text-2xl">
             🧭 Gain data-driven insights:
           </span>
@@ -75,7 +75,7 @@ const Why = () => {
             decisions about how to improve your landing page.
           </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
+        <li className="md:max-w-[60%] px-3 py-4 w-[85%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
           <span className="font-semibold font-inconsolata text-2xl">
             🥷 Personalize your optimization:
           </span>
@@ -86,7 +86,7 @@ const Why = () => {
             effective strategies.
           </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
+        <li className="md:max-w-[60%] px-3 py-4 w-[85%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
           <span className="font-semibold font-inconsolata text-2xl">
             🏆 Maximize your ROI:
           </span>

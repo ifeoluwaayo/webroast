@@ -7,7 +7,7 @@ const Payment = () => {
   return (
     <section
       id="payment"
-      className="px-5 mt-20 md:mt-0 md:px-8 py-12 md:py-20 flex flex-col items-center justify-center">
+      className="px-5 mt-28 md:mt-0 md:px-8 py-12 md:py-20 flex flex-col items-center justify-center">
       <h1 className="text-4xl text-center capitalize font-bold tracking-wider leading-tight">
         Spend less, convert More?
       </h1>
