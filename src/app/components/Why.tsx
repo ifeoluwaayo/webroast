@@ -44,7 +44,7 @@ const Why = () => {
     <section
       id="why"
       data-color="#fff"
-      className="section px-5 md:px-8 mt-20 md:mt-0 h-fit py-16 md:py-20 flex flex-col items-center">
+      className="section px-5 md:px-8 mt-28 md:mt-0 h-fit py-16 md:py-20 flex flex-col items-center">
       <h1 className="text-4xl text-center capitalize font-bold tracking-wider leading-tight">
         Why a Roast?
       </h1>
