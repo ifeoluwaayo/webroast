@@ -54,39 +54,47 @@ const Why = () => {
         might want to consider getting a roast:
       </h3>
       <ul className="flex flex-col items-center justify-center gap-5 md:gap-8 first:inner cards">
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
-          <span className="font-semibold font-inconsolata">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
+          <span className="font-semibold font-inconsolata text-2xl">
             🕵️‍♀️ Identify conversion killers:
           </span>
-          A roast can help you identify the hidden factors that are preventing
-          visitors from converting into customers. This could include things
-          like outdated design, confusing copywriting, or a lack of clear calls
-          to action.
+          <p className="max-w-[90%]">
+            A roast can help you identify the hidden factors that are preventing
+            visitors from converting into customers. This could include things
+            like outdated design, confusing copywriting, or a lack of clear
+            calls to action.
+          </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
-          <span className="font-semibold font-inconsolata">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
+          <span className="font-semibold font-inconsolata text-2xl">
             🧭 Gain data-driven insights:
           </span>
-          A roast will provide you with actionable insights based on real data,
-          not just guesswork. This data can help you make informed decisions
-          about how to improve your landing page.
+          <p className="max-w-[90%]">
+            A roast will provide you with actionable insights based on real
+            data, not just guesswork. This data can help you make informed
+            decisions about how to improve your landing page.
+          </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
-          <span className="font-semibold font-inconsolata">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
+          <span className="font-semibold font-inconsolata text-2xl">
             🥷 Personalize your optimization:
           </span>
-          A roast will take into account your specific landing page goals and
-          target audience to provide personalized recommendations. This ensures
-          that your optimization efforts are focused on the most effective
-          strategies.
+          <p className="max-w-[90%]">
+            A roast will take into account your specific landing page goals and
+            target audience to provide personalized recommendations. This
+            ensures that your optimization efforts are focused on the most
+            effective strategies.
+          </p>
         </li>
-        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
-          <span className="font-semibold font-inconsolata">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-gray-50">
+          <span className="font-semibold font-inconsolata text-2xl">
             🏆 Maximize your ROI:
           </span>
-          A roast can help you significantly improve your conversion rates and
-          achieve your business objectives. This can lead to a significant
-          increase in your return on investment (ROI).
+          <p className="max-w-[90%]">
+            A roast can help you significantly improve your conversion rates and
+            achieve your business objectives. This can lead to a significant
+            increase in your return on investment (ROI).
+          </p>
         </li>
       </ul>
     </section>
