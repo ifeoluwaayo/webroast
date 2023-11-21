@@ -53,7 +53,7 @@ const Why = () => {
         performance and boost conversions. Here are some of the reasons why you
         might want to consider getting a roast:
       </h3>
-      <ul className="flex flex-col items-center justify-center gap-5 pb-10 md:gap-8 first:inner cards">
+      <ul className="flex flex-col items-center justify-center gap-5 pb-14 md:pb-10 md:gap-8 first:inner cards">
         <li className="md:max-w-[60%] px-3 py-4 w-[80%] card h-[400px] md:h-[300px] rounded-lg flex flex-col items-center justify-center text-lg gap-3 text-center bg-white">
           <span className="font-semibold font-inconsolata text-2xl">
             🕵️‍♀️ Identify conversion killers:
