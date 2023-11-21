@@ -25,7 +25,7 @@ const Form = () => {
 
       <form className="mt-5 flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
         <input
-          className="shadow-sm rounded-full w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
+          className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
           type="url"
           placeholder="Page URL"
           value={data.url}
@@ -33,7 +33,7 @@ const Form = () => {
           onChange={(e: any) => setData({ ...data, url: e.target.value })}
         />
         <input
-          className="shadow-sm rounded-full w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
+          className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
           type="email"
           placeholder="Email Address"
           value={data.email}
@@ -105,9 +105,11 @@ const Form = () => {
         <button
           type="submit"
           disabled={!data.url || !data.email || !data.variantId}
-          className="flex gap-2 mt-2 items-center group bg-black text-white font-medium px-4 py-2 disabled:opacity-50 rounded-full shadow w-full justify-center">
-          Proceed
-          <IoArrowBackCircleOutline className="rotate-180 group-hover:rotate-[125deg] transition-all duration-500 ease-in-out text-2xl" />
+          className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom hover:before:scale-y-[0.30] before:scale-y-100 px-4 pt-2 pb-3 before:transition-transform before:ease-in-out before:duration-500 hover:text-black text-white w-full disabled:text-white disabled:before:scale-y-100 disabled:cursor-not-allowed mt-3">
+          <span className="font-inconsolata relative flex gap-2 items-center justify-center">
+            Proceed
+            <IoArrowBackCircleOutline className="rotate-180 group-hover:rotate-[125deg] transition-all duration-500 ease-in-out text-2xl" />
+          </span>
         </button>
       </form>
     </div>

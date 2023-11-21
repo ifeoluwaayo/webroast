@@ -1,11 +1,50 @@
-import React from "react";
+"use client";
+import gsap from "gsap";
+import { useLayoutEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Why = () => {
+  useLayoutEffect(() => {
+    const cards = gsap.utils.toArray(".card");
+    const spacer = 20;
+    const minScale = 0.8;
+
+    const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
+
+    cards.forEach((card: any, index) => {
+      const scaleVal = distributor(index, cards[index], cards);
+
+      const tween = gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: `top top`,
+          scrub: true,
+          markers: true,
+          invalidateOnRefresh: true,
+        },
+        ease: "none",
+        scale: scaleVal,
+      });
+
+      ScrollTrigger.create({
+        trigger: card,
+        start: `top-=200px top`,
+        endTrigger: ".cards",
+        end: `bottom top+=${200 + cards.length * spacer}`,
+        pin: true,
+        pinSpacing: false,
+        markers: true,
+        id: "pin",
+        invalidateOnRefresh: true,
+      });
+    });
+  }, []);
+
   return (
     <section
       id="why"
       data-color="#fff"
-      className="section px-5 md:px-8 h-screen py-16 md:py-20 flex flex-col items-center">
+      className="section px-5 md:px-8 h-fit py-16 md:py-20 flex flex-col items-center">
       <h1 className="text-4xl text-center capitalize font-bold tracking-wider leading-tight">
         Why a Roast?
       </h1>
@@ -14,8 +53,8 @@ const Why = () => {
         performance and boost conversions. Here are some of the reasons why you
         might want to consider getting a roast:
       </h3>
-      <ul className="flex flex-col gap-5 md:gap-8">
-        <li className="md:max-w-[60%]">
+      <ul className="flex flex-col items-center justify-center gap-5 md:gap-8 first:inner cards">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
           <span className="font-semibold font-inconsolata">
             🕵️‍♀️ Identify conversion killers:
           </span>
@@ -24,7 +63,7 @@ const Why = () => {
           like outdated design, confusing copywriting, or a lack of clear calls
           to action.
         </li>
-        <li className="md:max-w-[60%] md:ml-auto">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
           <span className="font-semibold font-inconsolata">
             🧭 Gain data-driven insights:
           </span>
@@ -32,7 +71,7 @@ const Why = () => {
           not just guesswork. This data can help you make informed decisions
           about how to improve your landing page.
         </li>
-        <li className="md:max-w-[60%]">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
           <span className="font-semibold font-inconsolata">
             🥷 Personalize your optimization:
           </span>
@@ -41,7 +80,7 @@ const Why = () => {
           that your optimization efforts are focused on the most effective
           strategies.
         </li>
-        <li className="md:max-w-[60%] md:ml-auto">
+        <li className="md:max-w-[60%] px-3 py-4 w-[80%] card">
           <span className="font-semibold font-inconsolata">
             🏆 Maximize your ROI:
           </span>

@@ -78,7 +78,7 @@ const What = () => {
             ref={container}
             className="overflow-x-scroll flex no-scrollbar gap-5 px-3 my-7 md:my-10 w-fit"
             data-scroll-in-section>
-            <div className="bg-white shadow-xl shadow-gray-700 text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
+            <div className="bg-white custom-shadow text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
               <Image
                 src="/rad.jpg"
                 alt="Radiation roast"
@@ -95,7 +95,7 @@ const What = () => {
                 kryptonite elements that are hindering your conversions.
               </p>
             </div>
-            <div className="bg-white shadow-xl shadow-gray-700 text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
+            <div className="bg-white custom-shadow text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
               <Image
                 src="/compass.png"
                 alt="Radiation roast"
@@ -113,7 +113,7 @@ const What = () => {
                 your landing page for maximum impact.
               </p>
             </div>
-            <div className="bg-white shadow-xl shadow-gray-700 text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
+            <div className="bg-white custom-shadow text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
               <Image
                 src="/ninja.jpg"
                 alt="Radiation roast"
@@ -131,7 +131,7 @@ const What = () => {
                 landing page goals and target audience.
               </p>
             </div>
-            <div className="bg-white shadow-xl shadow-gray-700 text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
+            <div className="bg-white custom-shadow text-black py-3 px-4 rounded-md w-[80vw] md:min-w-[30vw] md:w-[30vw] flex flex-col gap-3">
               <Image
                 src="/trophy.jpg"
                 alt="Radiation roast"

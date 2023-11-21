@@ -6,9 +6,10 @@ const Footer = () => {
     <footer
       className="w-full flex items-center flex-col py-14 justify-center bg-black"
       id="footer">
-      <div className="border-gray-500 border bg-white rounded-lg shadow-inner py-10 w-[80%] flex flex-col items-center justify-center">
+      <div className="border-gray-500 border mt-5 bg-white rounded-lg shadow-inner py-10 w-[80%] flex flex-col items-center justify-center">
         <h1 className="text-3xl text-center capitalize font-bold tracking-wider leading-tight">
-          Stop your Excuses and get Customers
+          Stop your Excuses and get <br />
+          Customers
         </h1>
         <h3 className="font-inconsolata text-xl mt-3 mb-5 max-w-[85%] md:max-w-[70%] text-center ">
           Save hundred of useful hours and cash trying to create the perfect
