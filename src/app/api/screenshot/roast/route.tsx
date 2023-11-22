@@ -1,11 +1,11 @@
 import { promises as fs } from "fs";
-import OpenAI from "openai";
+// import OpenAI from "openai";
 import { type NextRequest } from "next/server";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 
-const openai = new OpenAI({
-  //   apiKey: process.env.OPENAI_API_KEY,
-});
+// const openai = new OpenAI({
+//     apiKey: process.env.OPENAI_API_KEY,
+// });
 
 export const runtime = "edge";
 
