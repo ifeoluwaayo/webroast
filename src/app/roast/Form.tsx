@@ -1,10 +1,12 @@
 "use client";
+import axios from "axios";
 import { useState } from "react";
 import LemonSqueezy from "@lemonsqueezy/lemonsqueezy.js";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
-import { handleCheckout } from "./lemon";
+import Image from "next/image";
+// import { handleCheckout } from "./lemon";
 
 const Form = () => {
   const [data, setData] = useState({
@@ -12,107 +14,180 @@ const Form = () => {
     email: "",
     variantId: "157582",
   });
+  const [loading, setLoading] = useState(false);
+  const [paths, setPaths] = useState<any>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
 
-    handleCheckout(data);
+    // handleCheckout(data);
+
+    const res = await axios
+      .post("/api/screenshot", { data })
+      .then((res) => {
+        setPaths(res.data.body);
+        console.log(paths);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log(err);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10 w-full max-w-[320px] md:max-w-[23rem]">
-      <h3 className="font-inconsolata font-semibold text-2xl">Submit URL</h3>
-
-      <form className="mt-5 flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
-        <input
-          className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
-          type="url"
-          placeholder="Page URL"
-          value={data.url}
-          required
-          onChange={(e: any) => setData({ ...data, url: e.target.value })}
-        />
-        <input
-          className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
-          type="email"
-          placeholder="Email Address"
-          value={data.email}
-          required
-          onChange={(e: any) => setData({ ...data, email: e.target.value })}
-        />
-
-        <div className="rounded-lg p-5 w-full mt-5 gap-4 flex flex-col border border-gray-200">
-          Price
-          <button
-            type="button"
-            onClick={() => setData({ ...data, variantId: "157576" })}
-            className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
-              data.variantId === "157576" ? "border-black" : "border-gray-200"
-            } items-center justify-between transition-all duration-500 ease-in-out`}>
-            <div className="flex-col items-start flex gap-1">
-              <p className="text-lg font-semibold">$4 / Roast</p>
-              <p className="text-sm text-gray-500 font-inconsolata">
-                * New Launch Offer
-              </p>
+    <>
+      {paths !== null ? (
+        <div className="mt-10 flex flex-col items-center justify-center w-full max-w-[320px] md:max-w-[23rem]">
+          <div className="flex items-center justify-center">
+            <div className="scale-50 w-fit">
+              <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl ">
+                <div className="rounded-lg overflow-hidden w-[285px] md:w-[486px] h-[156px] md:h-[278px] bg-white dark:bg-gray-800 relative">
+                  <Image
+                    src={paths.desktop.substring(6)}
+                    className="w-[272px] h-[572px] object-cover object-top"
+                    alt=""
+                    fill
+                  />
+                </div>
+              </div>
+              <div className="relative bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
+              </div>
             </div>
 
-            {data.variantId === "157576" ? (
-              <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
-            ) : (
-              <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
-            )}
-          </button>
-          <button
-            type="button"
-            onClick={() => setData({ ...data, variantId: "157582" })}
-            className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
-              data.variantId === "157582" ? "border-black" : "border-gray-200"
-            } items-center justify-between transition-all duration-500 ease-in-out`}>
-            <div className="flex-col items-start flex gap-1">
-              <p className="text-lg font-semibold">$12 / Roast</p>
-              <p className="text-sm text-gray-500 font-inconsolata">
-                * Single Page Roast
-              </p>
+            <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] scale-[.3] shadow-xl">
+              <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+              <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+              <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800 relative">
+                <Image
+                  src={paths.mobile.substring(6)}
+                  className="w-[272px] h-[572px] object-cover object-top"
+                  alt=""
+                  fill
+                />
+              </div>
             </div>
-
-            {data.variantId === "157582" ? (
-              <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
-            ) : (
-              <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
-            )}
-          </button>
-          <button
-            type="button"
-            onClick={() => setData({ ...data, variantId: "157579" })}
-            className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
-              data.variantId === "157579" ? "border-black" : "border-gray-200"
-            } items-center justify-between transition-all duration-500 ease-in-out`}>
-            <div className="flex-col flex items-start gap-1">
-              <p className="text-lg font-semibold">$89 / Roast</p>
-              <p className="text-sm text-gray-500 font-inconsolata">
-                * Single Page Roast
-              </p>
-            </div>
-
-            {data.variantId === "157579" ? (
-              <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
-            ) : (
-              <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
-            )}
-          </button>
+          </div>
         </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center mt-10 w-full max-w-[320px] md:max-w-[23rem]">
+          <h3 className="font-inconsolata font-semibold text-2xl">
+            Submit URL
+          </h3>
 
-        <button
-          type="submit"
-          disabled={!data.url || !data.email || !data.variantId}
-          className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom hover:before:scale-y-[0.30] before:scale-y-100 px-4 pt-2 pb-3 before:transition-transform before:ease-in-out before:duration-500 hover:text-black text-white w-full disabled:text-white disabled:before:scale-y-100 disabled:cursor-not-allowed mt-3">
-          <span className="font-inconsolata relative flex gap-2 items-center justify-center">
-            Proceed
-            <IoArrowBackCircleOutline className="rotate-180 group-hover:rotate-[125deg] transition-all duration-500 ease-in-out text-2xl" />
-          </span>
-        </button>
-      </form>
-    </div>
+          <form
+            className="mt-5 flex flex-col gap-4 w-full"
+            onSubmit={handleSubmit}>
+            <input
+              className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
+              type="url"
+              placeholder="Page URL"
+              value={data.url}
+              required
+              onChange={(e: any) => setData({ ...data, url: e.target.value })}
+            />
+            <input
+              className="shadow-sm rounded-xl w-full flex-1 bg-gray-100 outline-none ring-0 text-base px-4 py-2"
+              type="email"
+              placeholder="Email Address"
+              value={data.email}
+              required
+              onChange={(e: any) => setData({ ...data, email: e.target.value })}
+            />
+
+            <div className="rounded-lg p-5 w-full mt-5 gap-4 flex flex-col border border-gray-200">
+              Price
+              <button
+                type="button"
+                onClick={() => setData({ ...data, variantId: "157576" })}
+                className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
+                  data.variantId === "157576"
+                    ? "border-black"
+                    : "border-gray-200"
+                } items-center justify-between transition-all duration-500 ease-in-out`}>
+                <div className="flex-col items-start flex gap-1">
+                  <p className="text-lg font-semibold">$4 / Roast</p>
+                  <p className="text-sm text-gray-500 font-inconsolata">
+                    * New Launch Offer
+                  </p>
+                </div>
+
+                {data.variantId === "157576" ? (
+                  <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
+                ) : (
+                  <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={() => setData({ ...data, variantId: "157582" })}
+                className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
+                  data.variantId === "157582"
+                    ? "border-black"
+                    : "border-gray-200"
+                } items-center justify-between transition-all duration-500 ease-in-out`}>
+                <div className="flex-col items-start flex gap-1">
+                  <p className="text-lg font-semibold">$12 / Roast</p>
+                  <p className="text-sm text-gray-500 font-inconsolata">
+                    * Single Page Roast
+                  </p>
+                </div>
+
+                {data.variantId === "157582" ? (
+                  <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
+                ) : (
+                  <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={() => setData({ ...data, variantId: "157579" })}
+                className={`rounded-lg px-4 py-2 gap-4 w-full flex border ${
+                  data.variantId === "157579"
+                    ? "border-black"
+                    : "border-gray-200"
+                } items-center justify-between transition-all duration-500 ease-in-out`}>
+                <div className="flex-col flex items-start gap-1">
+                  <p className="text-lg font-semibold">$89 / Roast</p>
+                  <p className="text-sm text-gray-500 font-inconsolata">
+                    * Single Page Roast
+                  </p>
+                </div>
+
+                {data.variantId === "157579" ? (
+                  <FaCheckCircle className="text-xl transition-all duration-500 ease-in-out" />
+                ) : (
+                  <MdOutlineRadioButtonUnchecked className="text-xl transition-all duration-500 ease-in-out" />
+                )}
+              </button>
+            </div>
+
+            <button
+              type="submit"
+              disabled={!data.url || !data.email || !data.variantId || loading}
+              className="relative group before:absolute before:bg-black before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom hover:before:scale-y-[0.30] before:scale-y-100 px-4 pt-2 pb-3 before:transition-transform before:ease-in-out before:duration-500 hover:text-black text-white w-full disabled:text-white disabled:before:scale-y-100 disabled:cursor-not-allowed mt-3">
+              {loading ? (
+                <span className="relative flex items-center justify-center">
+                  Proceeding...
+                </span>
+              ) : (
+                <span className="font-inconsolata relative flex gap-2 items-center justify-center">
+                  Proceed
+                  <IoArrowBackCircleOutline className="rotate-180 group-hover:rotate-[125deg] transition-all duration-500 ease-in-out text-2xl" />
+                </span>
+              )}
+            </button>
+          </form>
+        </div>
+      )}
+    </>
   );
 };
 
