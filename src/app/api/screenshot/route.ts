@@ -70,6 +70,7 @@ const uploadImage = async (name: string, path: string) => {
   const response = await axios.get("/screenshotone.com.png", {
     responseType: "blob",
   });
+  console.log(response);
   const file = response.data;
   const uploadTask = uploadBytesResumable(storageRef, file);
 
