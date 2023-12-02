@@ -93,8 +93,8 @@ const Payment = () => {
             <li className="flex items-start gap-3">
               <FaCircleCheck className="min-w-10 w-10 mt-1 text-lg" />
               <span>
-                Get feedback from our AI and more than 10 people that have
-                reviewed and roasted your page
+                Get feedback from our AI and recommendations to help improve
+                your landing page conversions
               </span>
             </li>
           </ul>

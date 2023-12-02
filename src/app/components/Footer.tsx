@@ -1,7 +1,15 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import { useContext } from "react";
+import { SmoothScrollContext } from "../context/scrollContext";
 
 const Footer = () => {
+  const { scroll } = useContext(SmoothScrollContext);
+
+  const smoothScroll = (id?: string) => {
+    scroll && (scroll as any).scrollTo(id || 0);
+  };
   return (
     <footer
       className="w-full flex items-center flex-col py-14 justify-center bg-black"
@@ -48,13 +56,16 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          <Link href="" className="">
+          <Link
+            href="#payment"
+            onClick={(e: any) => smoothScroll("#payment")}
+            className="">
             Get started
           </Link>
-          <Link href="" className="">
+          <Link href="/terms-and-conditions" className="">
             Terms & Conditions
           </Link>
-          <Link href="" className="">
+          <Link href="/privacy" className="">
             Privacy Policy
           </Link>
         </div>

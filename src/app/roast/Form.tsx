@@ -1,12 +1,10 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
-import LemonSqueezy from "@lemonsqueezy/lemonsqueezy.js";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { FaCheckCircle } from "react-icons/fa";
-import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import Image from "next/image";
-// import { handleCheckout } from "./lemon";
+import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 
 const Form = () => {
   const [data, setData] = useState({
@@ -15,66 +13,75 @@ const Form = () => {
     variantId: "157582",
   });
   const [loading, setLoading] = useState(false);
-  const [paths, setPaths] = useState<any>(null);
+  const [path, setPath] = useState<any>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
-    // handleCheckout(data);
+    const isMobile = window && window.innerWidth > 440 ? false : true;
+
+    const roast = async (path: string) => {
+      await axios
+        .post("/api/screenshot/roast", {
+          path: path,
+        })
+        .finally(() => setLoading(false));
+    };
+
+    // roast("/screenshots/desktop/screenshotone.com.png");
 
     const res = await axios
-      .post("/api/screenshot", { data })
+      .post("/api/screenshot", { data, isMobile })
       .then((res) => {
-        setPaths(res.data.body);
-        console.log(paths);
+        console.log(res);
+        setPath(res.data.body || null);
+        // roast(res.data.body);
       })
       .catch((err) => {
-        if (err) {
-          console.log(err);
-        }
+        console.log(err);
       })
       .finally(() => {
         setLoading(false);
       });
+
+    // const res = await axios
+    //   .post("/api/screenshot", { data })
+    //   .then((res) => {
+    //     setPaths(res.data.body);
+    //     console.log(paths);
+    //   })
+    //   .catch((err) => {
+    //     if (err) {
+    //       console.log(err);
+    //     }
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
   };
 
   return (
     <>
-      {paths !== null ? (
-        <div className="mt-10 flex flex-col items-center justify-center w-full max-w-[320px] md:max-w-[23rem]">
-          <div className="flex items-center justify-center">
-            <div className="scale-50 w-fit">
-              <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl ">
-                <div className="rounded-lg overflow-hidden w-[285px] md:w-[486px] h-[156px] md:h-[278px] bg-white dark:bg-gray-800 relative">
-                  <Image
-                    src={paths.desktop.substring(6)}
-                    className="w-[272px] h-[572px] object-cover object-top"
-                    alt=""
-                    fill
-                  />
-                </div>
-              </div>
-              <div className="relative bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
-              </div>
-            </div>
-
-            <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] scale-[.3] shadow-xl">
-              <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
-              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-              <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-              <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-              <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800 relative">
+      {path !== null ? (
+        <div className="mt-8 flex flex-col items-center justify-center w-full max-w-[320px] md:max-w-[23rem] h-fit">
+          <div className="scale-50 w-fit">
+            <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl ">
+              <div className="rounded-lg overflow-hidden w-[285px] md:w-[486px] h-[156px] md:h-[278px] bg-white dark:bg-gray-800 relative">
                 <Image
-                  src={paths.mobile.substring(6)}
+                  src={path?.substring(6) || ""}
                   className="w-[272px] h-[572px] object-cover object-top"
                   alt=""
                   fill
                 />
               </div>
             </div>
+            <div className="relative bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
+            </div>
           </div>
+
+          <div className="flex px-5 md:px-8 flex-col items-center justify-center"></div>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center mt-10 w-full max-w-[320px] md:max-w-[23rem]">
