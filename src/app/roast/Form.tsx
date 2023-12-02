@@ -14,6 +14,8 @@ const Form = () => {
   });
   const [loading, setLoading] = useState(false);
   const [path, setPath] = useState<any>(null);
+  const [isRoasting, setIsRoasting] = useState(false);
+  const [roast, setRoast] = useState("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -22,28 +24,34 @@ const Form = () => {
     const isMobile = window && window.innerWidth > 440 ? false : true;
 
     const roast = async (path: string) => {
+      setIsRoasting(true);
       await axios
         .post("/api/screenshot/roast", {
           path: path,
         })
-        .finally(() => setLoading(false));
+        .then((res) => console.log(res))
+        .finally(() => {
+          setIsRoasting(false), setLoading(false);
+        });
     };
 
-    // roast("/screenshots/desktop/screenshotone.com.png");
+    roast(
+      "https://cache.screenshotone.com/7ab5364ffbda320e42469a5631fafc81b5a87d1d646f6efc1809a262060f3170"
+    );
 
-    const res = await axios
-      .post("/api/screenshot", { data, isMobile })
-      .then((res) => {
-        console.log(res);
-        setPath(res.data.body || null);
-        // roast(res.data.body);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    // const res = await axios
+    //   .post("/api/screenshot", { data, isMobile })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setPath(res.data.body.url || null);
+    //     roast(res.data.body.url);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
 
     // const res = await axios
     //   .post("/api/screenshot", { data })
@@ -69,7 +77,7 @@ const Form = () => {
             <div className="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl ">
               <div className="rounded-lg overflow-hidden w-[285px] md:w-[486px] h-[156px] md:h-[278px] bg-white dark:bg-gray-800 relative">
                 <Image
-                  src={path?.substring(6) || ""}
+                  src={path || ""}
                   className="w-[272px] h-[572px] object-cover object-top"
                   alt=""
                   fill

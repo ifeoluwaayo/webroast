@@ -1,5 +1,3 @@
-import axios from "axios";
-import { promises as fs } from "fs";
 import OpenAI from "openai";
 import { type NextRequest } from "next/server";
 import { OpenAIStream, StreamingTextResponse } from "ai";
@@ -22,11 +20,14 @@ export async function POST(req: NextRequest) {
       {
         role: "user",
         content: [
-          { type: "text", text: "What’s in this image?" },
+          {
+            type: "text",
+            text: "You're an expert UI/UX designer. Give recommendations on how to improve this website's conversion score and give the website a conversion score out of 10",
+          },
           {
             type: "image_url",
             image_url: {
-              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
+              url: path,
             },
           },
         ],

@@ -1,0 +1,103 @@
+// const browser = await puppeteer.launch();
+
+// try {
+//   // For mobile
+//   const mobile = await browser.newPage();
+//   await mobile.setViewport({
+//     width: 414, // default: 800
+//     height: 896, // default: 600
+//     deviceScaleFactor: 2, // default: 1
+//   });
+//   await mobile.goto(url, { waitUntil: "networkidle0" });
+//   const path = `public/screenshots/mobile/${urlObject.hostname}.png`;
+//   await mobile.screenshot({
+//     path,
+//     fullPage: true,
+//   });
+
+//   // For desktop
+//   const desktop = await browser.newPage();
+//   await desktop.setViewport({
+//     width: 1100, // default: 800
+//     height: 890, // default: 600
+//     deviceScaleFactor: 2, // default: 1
+//   });
+//   await desktop.goto(url, { waitUntil: "networkidle0" });
+//   const path2 = `public/screenshots/desktop/${urlObject.hostname}.png`;
+//   await desktop.screenshot({
+//     path: path2,
+//     fullPage: true,
+//   });
+
+//   return Response.json({
+//     body: {
+//       mobile: path,
+//       desktop: path2,
+//     },
+//   });
+// } catch (e) {
+//   console.log(e);
+//   return Response.json({ error: e }, { status: 500 });
+// } finally {
+//   await browser.close();
+// }
+
+const blobToImage = (blob: Blob) => {
+//   return new Promise((resolve) => {
+//     const url = URL.createObjectURL(blob);
+//     let img = new Image();
+//     img.onload = () => {
+//       URL.revokeObjectURL(url);
+//       resolve(img);
+//     };
+//     img.src = url;
+//   });
+// };
+
+// const uploadImage = async (name: string, path: string) => {
+//   const storageRef = ref(storage, `/screenshot/${name}`);
+//   const response = await axios.get(
+//     "http://localhost:3000/screenshotone.com.png",
+//     {
+//       responseType: "blob",
+//     }
+//   );
+//   console.log(response);
+//   const file = response.data;
+//   const image = new File(file, "image.png", { type: "image/png" });
+//   console.log(image);
+//   const uploadTask = uploadBytesResumable(storageRef, image as any);
+
+//   uploadTask.on(
+//     "state_changed",
+//     (err) => {
+//       return Response.json({ error: err }, { status: 500 });
+//     },
+//     () => {
+//       getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+//         return url;
+//       });
+//     }
+//   );
+// };
+
+// const uploadImage = async (imageBlob: Blob, name: string, maxAttempts = 3) => {
+//   for (let attempt = 0; attempt < maxAttempts; attempt++) {
+//     try {
+//       const storageRef = ref(storage, `images/${name}.png`);
+//       await uploadBytes(storageRef, imageBlob);
+//       const downloadURL = await getDownloadURL(storageRef);
+//       return downloadURL;
+//     } catch (e) {
+//       console.error(`Failed to upload image on attempt ${attempt + 1}: ${e}`);
+//     }
+//   }
+// };
+
+    // const imageBlob = await client.take(options);
+    // const buffer = Buffer.from(await imageBlob.arrayBuffer());
+    // const image = new File(imageBlob, "image.png", { type: "image/png" });
+    // // fs.writeFileSync(path, buffer);
+    // const uploadUrl = await uploadImage(urlObject.hostname, path);
+    // // const uploadUrl = await uploadImage(urlObject.hostname, path);
+    // console.log("url:", uploadUrl);
