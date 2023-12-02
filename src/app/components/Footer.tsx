@@ -14,7 +14,7 @@ const Footer = () => {
     <footer
       className="w-full flex items-center flex-col py-14 justify-center bg-black"
       id="footer">
-      <div className="border-gray-500 border mt-5 bg-white rounded-lg shadow-inner py-10 w-[80%] flex flex-col items-center justify-center">
+      <div className="border-gray-500 border mt-5 bg-white rounded-lg shadow-inner py-10 w-[80%] flex flex-col items-center justify-center px-5 md:px-8">
         <h1 className="text-3xl text-center capitalize font-bold tracking-wider leading-tight">
           Stop your Excuses and get <br />
           Customers
