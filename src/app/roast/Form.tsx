@@ -29,7 +29,7 @@ const Form = () => {
         .post("/api/screenshot/roast", {
           path: path,
         })
-        .then((res) => console.log(res))
+        .then((res) => setRoast(res.data))
         .finally(() => {
           setIsRoasting(false), setLoading(false);
         });
@@ -89,7 +89,9 @@ const Form = () => {
             </div>
           </div>
 
-          <div className="flex px-5 md:px-8 flex-col items-center justify-center"></div>
+          <div className="flex px-5 md:px-8 flex-col items-center justify-center">
+            {roast}
+          </div>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center mt-10 w-full max-w-[320px] md:max-w-[23rem]">
