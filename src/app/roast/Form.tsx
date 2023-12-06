@@ -29,7 +29,10 @@ const Form = () => {
         .post("/api/screenshot/roast", {
           path: path,
         })
-        .then((res) => setRoast(res.data))
+        .then((res) => {
+          setRoast(res.data);
+          console.log(res);
+        })
         .finally(() => {
           setIsRoasting(false), setLoading(false);
         });
