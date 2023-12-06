@@ -1,6 +1,13 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy || Web Roast",
+  description:
+    "Welcome to Web Roast. Roast your website and receive instant, tailored suggestions to enhance its performance. Our expert analysis ensures your site is at its best, driving optimal results. Transform your online presence with Web Roast - where insightful suggestions meet swift solutions.",
+};
 
 const page = () => {
   return (
